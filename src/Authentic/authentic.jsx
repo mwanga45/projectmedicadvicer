@@ -14,7 +14,7 @@ export default function Authentic() {
         <div className="formcontainer-authentic">
         <div className="left-container">
           {isLogIn ?     
-          <RegisterForm changeform = {()=> setisLogin(!isLogIn)}/> : <LoginFormForm changeform={()=> setisLogin(!isLogIn)}/>
+          <RegisterForm changeForm={()=> setisLogin(!isLogIn)}/> : <LoginFormForm changeform={()=> setisLogin(!isLogIn)}/>
           }
         </div>
         <div className="right"></div>

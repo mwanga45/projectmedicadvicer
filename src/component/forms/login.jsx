@@ -1,7 +1,7 @@
+import React from "react";
+import { FaRegistered } from "react-icons/fa";
 
-import React from 'react';
-
-const LoginForm = (changeform) => {
+const LoginForm = ({ changeform }) => {
   return (
     <form className="form">
       <p className="title">Register</p>
@@ -14,10 +14,21 @@ const LoginForm = (changeform) => {
         <input required placeholder="" type="password" className="input" />
         <span>Password</span>
       </label>
-      {/* <button className="submit">Register</button>
+      <button className="submit">Submit</button>
       <p className="signin">
-        Already have an account?Sign in <button onClick={changeform}> Already have an account?Sign in </button>
-      </p> */}
+      I dont have an account please : register first? 
+        <FaRegistered onClick={changeform}
+        size={20}
+        style={{
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+          borderRadius: '10px',
+          padding: '10px',
+          color: '#333', // optional
+          backgroundColor: '#f0f0f0' // optional
+        }}
+      />
+
+      </p>
     </form>
   );
 };
