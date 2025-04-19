@@ -1,3 +1,13 @@
-.main-container{
-    
+.Authentic-maincontain{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+}
+.formcontainer-authentic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
