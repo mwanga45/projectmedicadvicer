@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import RegisterForm from "../component/forms/reg";
 import LoginFormForm from "../component/forms/login";
 import "./authentic.css";
+import Navbar from "../component/navigation/navigation";
 
 export default function Authentic() {
   const [isLogIn, setisLogin] = useState(true);
   return (
     <div className="Authentic-maincontain">
+      <Navbar/>
       <div className="maincontainer-authentic">
         <div className="formcontainer-authentic">
           <div className="left-container">
