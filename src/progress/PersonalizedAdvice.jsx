@@ -1,29 +1,29 @@
 import "./PersonalizesAdvice.css"
 
 export default function PersonalizedAdvice({ patientData, progress, bmi }) {
-  // Calculate ideal weight range based on height (using BMI 18.5-24.9 range)
+
   const heightInMeters = patientData.height / 100
   const minIdealWeight = (18.5 * heightInMeters * heightInMeters).toFixed(1)
   const maxIdealWeight = (24.9 * heightInMeters * heightInMeters).toFixed(1)
 
-  // Calculate weekly rate of weight loss
+  
   const firstDate = new Date(patientData.weightHistory[0].date)
   const lastDate = new Date(patientData.weightHistory[patientData.weightHistory.length - 1].date)
   const weeksDifference = Math.max(1, Math.round((lastDate - firstDate) / (7 * 24 * 60 * 60 * 1000)))
   const weeklyLossRate = (progress.weightLoss / weeksDifference).toFixed(2)
 
-  // Determine if weight loss rate is healthy (0.5-2 kg per week is generally considered healthy)
+  
   const isHealthyRate = weeklyLossRate >= 0.5 && weeklyLossRate <= 2
 
-  // Calculate estimated time to reach ideal weight
+  
   const weightToLose = Math.max(0, progress.currentWeight - maxIdealWeight)
   const estimatedWeeks = weightToLose > 0 && weeklyLossRate > 0 ? Math.ceil(weightToLose / weeklyLossRate) : 0
 
-  // Generate personalized advice based on patient data
+  
   const generateAdvice = () => {
     const advice = []
 
-    // Weight-related advice
+    
     if (Number.parseFloat(bmi) > 25) {
       if (progress.weightLoss <= 0) {
         advice.push({
@@ -76,7 +76,7 @@ export default function PersonalizedAdvice({ patientData, progress, bmi }) {
       })
     }
 
-    // Age-specific advice
+    
     if (patientData.age < 30) {
       advice.push({
         title: "Young Adult Health Focus",
@@ -97,7 +97,7 @@ export default function PersonalizedAdvice({ patientData, progress, bmi }) {
       })
     }
 
-    // Progress-specific advice
+    
     if (progress.weightLoss > 5) {
       advice.push({
         title: "Preventing Weight Regain",

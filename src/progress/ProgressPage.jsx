@@ -1,10 +1,9 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import "./ProgressPage.css"
 import WeightChart from "./WeightChart"
 import HealthSuggestions from "./HealthSuggestions"
 import PersonalizedAdvice from "./PersonalizedAdvice"
+import Navbar from "../component/navigation/navigation"
 
 // Sample data - in a real app, this would come from an API or database
 const samplePatientData = {
@@ -69,6 +68,7 @@ export default function ProgressPage() {
 
   return (
     <div className="progress-page">
+        <Navbar/>
       <header className="progress-header">
         <h1>Patient Progress Dashboard</h1>
         <div className="patient-info">
