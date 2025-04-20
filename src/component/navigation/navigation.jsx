@@ -29,7 +29,7 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { name: "Home", href: "/", icon: <FiHome className="icon" /> },
+    { name: "Home", href: "/home", icon: <FiHome className="icon" /> },
     { name: "Food Service", href: "/food-service", icon: <FiCoffee className="icon" /> },
     { name: "Progress", href: "/progress", icon: <FiTrendingUp className="icon" /> },
     { name: "Health", href: "/health", icon: <FiHeart className="icon" /> },

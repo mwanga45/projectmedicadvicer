@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import Navbar from '../component/navigation/navigation';
 
 const cardData = [
   {
@@ -32,6 +33,7 @@ const cardData = [
 const Home = () => {
   return (
     <div className="home-container">
+      <Navbar/>
       <h1>What is a Balanced Diet?</h1>
       <p className="intro">
         A balanced diet includes a variety of foods in the right proportions to provide the nutrients your body needs to function effectively. Here are some key food groups and their benefits:

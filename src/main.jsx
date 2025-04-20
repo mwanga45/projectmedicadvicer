@@ -4,6 +4,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Home from './home/home.jsx'
 import Authentic from './Authentic/authentic.jsx'
 import Profile from './details/profile.js'
+import ProgressPage from './progress/ProgressPage.jsx'
 
 import './index.css'
 import App from './App.jsx'
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path:"/profile",
         element:<Profile/>
+      },
+      {
+       path:"/progress",
+       element:<ProgressPage/>
       }
       
 
