@@ -1,7 +1,11 @@
-// From Uiverse.io by Yaya12085
 import React from "react";
 import { GoSignIn } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 const RegisterForm = ({ changeForm }) => {
+  const navigateTo = useNavigate()
+  const handleOnsubmit = ()=>{
+    navigateTo("/home")
+  }
   return (
     <form className="form">
       <p className="title">Register </p>
@@ -31,7 +35,7 @@ const RegisterForm = ({ changeForm }) => {
         <input required placeholder="" type="password" className="input" />
         <span>Confirm password</span>
       </label>
-      <button className="submit">Submit</button>
+      <button className="submit" onClick={handleOnsubmit}>Submit</button>
       <p className="signin">
         Already have an account? Sign in <GoSignIn onClick={changeForm}
         size={20}
