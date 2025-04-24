@@ -24,16 +24,37 @@ const RegisterForm = ({ changeForm }) => {
   const handleOnsubmit = async (e) => {
     e.preventDefault()
     try{
-      const respond  = await axios.post("http://localhost:8080/",formstate)
-      if (respond.data === 200){
-        setMessage("respond.data.message"||"something went wrong")
+      const respond  = await axios.post("http://localhost:8080/register", formstate)
+      if (respond.status === 200){
+        setMessage(respond.data.message || "Successfully registered")
+         setformstate({
+          firstname:"",
+          secondname:"",
+          email:"",
+          password:""
+         })
+        navigateTo("/home")
+      } else {
+        setMessage(respond.data.message || "Something went wrong")
       }
-      setMessage("respond.data.message" || "Successfully registered")
-      navigateTo("/home")
     }catch(err){
       console.error("Something went wrong ", err)
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        if (err.response.status === 409) {
+          setMessage("This email is already registered. Please use a different email or try logging in.")
+        } else {
+          setMessage(err.response.data?.message || `Error: ${err.response.status} - ${err.response.statusText}`)
+        }
+      } else if (err.request) {
+        // The request was made but no response was received
+        setMessage("No response from server. Please check your connection and try again.")
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setMessage("An error occurred while setting up the request.")
+      }
     }
-
   }
   return (
     <form className="form">
@@ -46,7 +67,7 @@ const RegisterForm = ({ changeForm }) => {
         </label>
 
         <label>
-          <input required placeholder="" type="text" className="input" name="secondname" value={formstate.secondname}/>
+          <input required placeholder="" type="text" className="input" name="secondname" value={formstate.secondname} onChange={handleonchangeInput}/>
           <span>Lastname</span>
         </label>
       </div>
