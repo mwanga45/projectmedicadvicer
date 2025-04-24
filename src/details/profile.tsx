@@ -56,9 +56,10 @@ export default function Profile() {
             <label htmlFor="bio">Bio</label>
             <textarea id="bio" name="bio" value={formData.bio} onChange={handleChange} rows={4}></textarea>
           </div>
-
-          <button type="submit" className="submit-btn">
-          </button>
+           <div className="container-btn">
+          <button type="submit" className="submit-btn">Create Profile</button>
+           </div>
+          
         </form>
       </div>
 

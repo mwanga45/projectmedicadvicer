@@ -40,7 +40,7 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <div className="nav-brand">BrandName</div>
+          <div className="nav-brand" style={{marginLeft:"5px",color:"blue", fontWeight:"700"}}>Smart Diet</div>
 
           <div className="desktop-menu">
             {navLinks.map((link) => (

@@ -4,14 +4,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const RegisterForm = ({ changeForm }) => {
-  const navigateTo = useNavigate()
-  const [Message , setMessage] = useState([])
+  const navigateTo = useNavigate();
+  const [Message , setMessage] = useState([]);
   const [formstate , setformstate]= useState({
     firstname:"",
     secondname:"",
     email:"",
     password:""
-  })
+  });
+  const [goto , setgoto] = useState(false);
   const handleonchangeInput= (e)=>{
     const {name, value} = e.target
     setformstate((prev) => ({
@@ -24,7 +25,7 @@ const RegisterForm = ({ changeForm }) => {
   const handleOnsubmit = async (e) => {
     e.preventDefault()
     try{
-      const respond  = await axios.post("http://localhost:8080/register", formstate)
+      const respond  = await axios.post("http://localhost:8080/register",formstate)
       if (respond.status === 200){
         setMessage(respond.data.message || "Successfully registered")
          setformstate({
@@ -93,8 +94,8 @@ const RegisterForm = ({ changeForm }) => {
           boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
           borderRadius: '10px',
           padding: '10px',
-          color: '#333', // optional
-          backgroundColor: '#f0f0f0' // optional
+          color: '#333',
+          backgroundColor: '#f0f0f0'
         }}
       />
       </p>

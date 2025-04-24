@@ -8,7 +8,6 @@ export default function Authentic() {
   const [isLogIn, setisLogin] = useState(true);
   return (
     <div className="Authentic-maincontain">
-      <Navbar/>
       <div className="maincontainer-authentic">
         <div className="formcontainer-authentic">
           <div className="left-container">
